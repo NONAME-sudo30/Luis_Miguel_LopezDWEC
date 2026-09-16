@@ -67,4 +67,11 @@ body.tema-claro .enlace {
   padding: 5px;
   border-radius: 8px;
 }
+.tema-claro {
+  background-color: #f50000;
+  color: #fb0202;
+  background-color: #0274f6;
+  padding: 5px;
+  border-radius: 8px;
+}   
 
