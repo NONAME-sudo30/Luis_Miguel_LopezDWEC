@@ -22,3 +22,49 @@ color: #4f8cff;
 #boton:hover {
     background-color: #005a9e;
 }
+/* Menú */
+#menu {
+  background-color: #e8dfdf;
+  padding: 15px;
+     padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+}
+
+/* Enlaces */
+.enlace {
+  color: #58a6ff;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+/* Hover */
+.enlace:hover {
+  color: #0b72bb;
+  background-color: #0274f6;
+  padding: 5px;
+  border-radius: 8px;
+}
+body.tema-claro {
+  background-color: #f50000;
+  color: #fb0202;
+}
+
+body.tema-claro #menu {
+  background-color: #58a6ff;
+}
+
+body.tema-claro .enlace {
+  color: #ee0000;
+  
+}
+.modonoche {
+  background-color: #0f1420;
+  color: #e8ecf4;
+  background-color: #0274f6;
+  padding: 5px;
+  border-radius: 8px;
+}
+
