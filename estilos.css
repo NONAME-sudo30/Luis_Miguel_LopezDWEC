@@ -74,4 +74,9 @@ body.tema-claro .enlace {
   padding: 5px;
   border-radius: 8px;
 }   
+.tablaJuegos {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
 
