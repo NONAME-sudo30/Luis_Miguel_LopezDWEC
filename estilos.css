@@ -74,12 +74,29 @@ body.tema-claro .enlace {
   padding: 5px;
   border-radius: 8px;
 }   
+/* Selecciona la tabla por su id */
 #tablaJuegos {
-  width: 100%;
-  padding: 100px 0;
-  margin: 20px 0;
-border-radius: 8px;
-color: #e8ecf4;
-  margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+/* Bordes y espacio interior */
+#tablaJuegos th,
+#tablaJuegos td {
+    border: 1px solid #ede6e6;
+    padding: 10px;
+    text-align: left;
+}
+
+
+/* Efecto cebra */
+#tablaJuegos tr:nth-child(even) {
+    background-color: #b7b4b4;
+}
+
+/* Efecto hover */
+#tablaJuegos tr:hover {
+    background-color: #e9ece9;
 }
 
