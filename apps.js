@@ -1,4 +1,4 @@
-
+document.getElementById("cuerpoTabla").innerHTML = "";
 const videojuegos = [
   {
     nombre: "The Legend of Zelda: Tears of the Kingdom",
@@ -40,7 +40,7 @@ const videojuegos = [
     compania: "ConcernedApe",
     plataforma: "PC",
     valoracion: 8.9,
-    precio: 13.99
+    precio: 13.8
   }
 ];
 
@@ -49,8 +49,6 @@ const cuerpoTabla = document.getElementById("cuerpoTabla");
 for (const videojuego of videojuegos) {
   const fila = document.createElement("tr");
 
-  const celdaNombre = document.createElement("td");
-  celdaNombre.textContent = videojuego.nombre;
 
   const celdaCompania = document.createElement("td");
   celdaCompania.textContent = videojuego.compania;
@@ -75,5 +73,3 @@ for (const videojuego of videojuegos) {
 }
 
 
-// cambia arriba el precio o la valoración de cualquier juego, guarda y recarga.
-// La tabla cambia sin haber tocado ni una línea de index.html.
