@@ -1,69 +1,79 @@
-console.log("¡Hola DWEC! Mi taller ya funciona.");  
-// Recuperar elementos por su id
-const boton = document.getElementById("boton");
-const aviso = document.getElementById("aviso");
 
-// Variable contador
-let contador = 0;
-
-// Escuchar el clic en el botón
-boton.addEventListener("click", () => {
-    contador++;
-    aviso.textContent = `Has hecho clic ${contador} veces`;
-    
-});
-const modonoche = document.getElementById("modonoche");
-
-modonoche.addEventListener("click", () => {
-  document.body.classList.toggle("tema-claro");
-
-  if (document.body.classList.contains("tema-claro")) {
-    boton.textContent = "☀️";
-  } else {
-    boton.textContent = "🌙";
-  }
- 
-const juegos = [
+const videojuegos = [
   {
-    id: "fila1",
-    nombre: "Borderlands 4",
-    compañia: "Gearbox Software",
-    plataforma: "PC",
-    valoracion: 9.0,
-    precio: 29.99
-  },
-  {
-    id: "fila2",
-    nombre: "FC 27",
-    compañia: "EA Sports",
-    plataforma: "PS5",
-    valoracion: 8.0,
-    precio: 100
-  },
-  {
-    id: "fila3",
-    nombre: "Elden Ring",
-    compañia: "FromSoftware",
-    plataforma: "PC",
-    valoracion: 9.0,
+    nombre: "The Legend of Zelda: Tears of the Kingdom",
+    compania: "Nintendo",
+    plataforma: "Nintendo Switch",
+    valoracion: 9.6,
     precio: 59.99
   },
   {
-    id: "fila4",
-    nombre: "Hollow Knight: Silksong",
-    compañia: "Team Cherry",
+    nombre: "Elden Ring",
+    compania: "FromSoftware",
     plataforma: "PC",
     valoracion: 9.5,
-    precio: 20
+    precio: 49.99
   },
   {
-    id: "fila5",
-    nombre: "Persona 5",
-    compañia: "Atlus",
-    plataforma: "PS5, PC",
+    nombre: "God of War Ragnarök",
+    compania: "Santa Monica Studio",
+    plataforma: "PlayStation 5",
+    valoracion: 9.4,
+    precio: 69.99
+  },
+  {
+    nombre: "Hollow Knight",
+    compania: "Team Cherry",
+    plataforma: "PC",
     valoracion: 9.0,
-    precio: 50
+    precio: 14.99
+  },
+  {
+    nombre: "Forza Horizon 5",
+    compania: "Playground Games",
+    plataforma: "Xbox Series X",
+    valoracion: 9.2,
+    precio: 39.99
+  },
+  {
+    nombre: "Stardew Valley",
+    compania: "ConcernedApe",
+    plataforma: "PC",
+    valoracion: 8.9,
+    precio: 13.99
   }
 ];
 
-});
+
+const cuerpoTabla = document.getElementById("cuerpoTabla");
+for (const videojuego of videojuegos) {
+  const fila = document.createElement("tr");
+
+  const celdaNombre = document.createElement("td");
+  celdaNombre.textContent = videojuego.nombre;
+
+  const celdaCompania = document.createElement("td");
+  celdaCompania.textContent = videojuego.compania;
+
+  const celdaPlataforma = document.createElement("td");
+  celdaPlataforma.textContent = videojuego.plataforma;
+
+  const celdaValoracion = document.createElement("td");
+  celdaValoracion.textContent = videojuego.valoracion.toFixed(1);
+
+  const celdaPrecio = document.createElement("td");
+  celdaPrecio.textContent = videojuego.precio.toFixed(2) + " €";
+
+  fila.appendChild(celdaNombre);
+  fila.appendChild(celdaCompania);
+  fila.appendChild(celdaPlataforma);
+  fila.appendChild(celdaValoracion);
+  fila.appendChild(celdaPrecio);
+
+ 
+  cuerpoTabla.appendChild(fila);
+}
+
+
+// cambia arriba el precio o la valoración de cualquier juego, guarda y recarga.
+// La tabla cambia sin haber tocado ni una línea de index.html.
