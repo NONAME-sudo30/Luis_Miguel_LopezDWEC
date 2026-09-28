@@ -103,4 +103,45 @@ botonAnadir.addEventListener("click", function (event) {
     videojuegos.push(nuevoJuego);
 
     pintarTabla();
+    botonAnadir.addEventListener("click", function (event) {
+
+    event.preventDefault();
+
+    const nombre = document.getElementById("nombre").value;
+    const compania = document.getElementById("compania").value;
+    const plataforma = document.getElementById("plataforma").value;
+    const valoracion = document.getElementById("valoracion").value;
+    const precio = document.getElementById("precio").value;
+
+    // Validación
+    if (
+        nombre === "" ||
+        compania === "" ||
+        plataforma === "" ||
+        valoracion === "" ||
+        precio === ""
+    ) {
+        alert("Debes rellenar todos los campos");
+        return;
+    }
+
+    const nuevoJuego = {
+        nombre: nombre,
+        compania: compania,
+        plataforma: plataforma,
+        valoracion: parseFloat(valoracion),
+        precio: parseFloat(precio)
+    };
+
+    videojuegos.push(nuevoJuego);
+
+    pintarTabla();
+
+    // Limpiar formulario
+    document.getElementById("nombre").value = "";
+    document.getElementById("compania").value = "";
+    document.getElementById("plataforma").value = "";
+    document.getElementById("valoracion").value = "";
+    document.getElementById("precio").value = "";
+});
 });s
