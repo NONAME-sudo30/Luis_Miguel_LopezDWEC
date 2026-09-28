@@ -1,4 +1,3 @@
-document.getElementById("cuerpoTabla").innerHTML = "";
 const videojuegos = [
   {
     nombre: "The Legend of Zelda: Tears of the Kingdom",
@@ -44,32 +43,64 @@ const videojuegos = [
   }
 ];
 
-
 const cuerpoTabla = document.getElementById("cuerpoTabla");
-for (const videojuego of videojuegos) {
-  const fila = document.createElement("tr");
 
+function pintarTabla() {
 
-  const celdaCompania = document.createElement("td");
-  celdaCompania.textContent = videojuego.compania;
+    cuerpoTabla.innerHTML = "";
 
-  const celdaPlataforma = document.createElement("td");
-  celdaPlataforma.textContent = videojuego.plataforma;
+    for (const videojuego of videojuegos) {
 
-  const celdaValoracion = document.createElement("td");
-  celdaValoracion.textContent = videojuego.valoracion.toFixed(1);
+        const fila = document.createElement("tr");
 
-  const celdaPrecio = document.createElement("td");
-  celdaPrecio.textContent = videojuego.precio.toFixed(2) + " €";
+        const celdaNombre = document.createElement("td");
+        celdaNombre.textContent = videojuego.nombre;
 
-  fila.appendChild(celdaNombre);
-  fila.appendChild(celdaCompania);
-  fila.appendChild(celdaPlataforma);
-  fila.appendChild(celdaValoracion);
-  fila.appendChild(celdaPrecio);
+        const celdaCompania = document.createElement("td");
+        celdaCompania.textContent = videojuego.compania;
 
- 
-  cuerpoTabla.appendChild(fila);
+        const celdaPlataforma = document.createElement("td");
+        celdaPlataforma.textContent = videojuego.plataforma;
+
+        const celdaValoracion = document.createElement("td");
+        celdaValoracion.textContent = videojuego.valoracion.toFixed(1);
+
+        const celdaPrecio = document.createElement("td");
+        celdaPrecio.textContent = videojuego.precio.toFixed(2) + " €";
+
+        fila.appendChild(celdaNombre);
+        fila.appendChild(celdaCompania);
+        fila.appendChild(celdaPlataforma);
+        fila.appendChild(celdaValoracion);
+        fila.appendChild(celdaPrecio);
+
+        cuerpoTabla.appendChild(fila);
+    }
 }
 
+pintarTabla();
 
+const botonAnadir = document.getElementById("Añadir");
+
+botonAnadir.addEventListener("click", function (event) {
+
+    event.preventDefault();
+
+    const nombre = document.getElementById("nombre").value;
+    const compania = document.getElementById("compania").value;
+    const plataforma = document.getElementById("plataforma").value;
+    const valoracion = parseFloat(document.getElementById("valoracion").value);
+    const precio = parseFloat(document.getElementById("precio").value);
+
+    const nuevoJuego = {
+        nombre: nombre,
+        compania: compania,
+        plataforma: plataforma,
+        valoracion: valoracion,
+        precio: precio
+    };
+
+    videojuegos.push(nuevoJuego);
+
+    pintarTabla();
+});s

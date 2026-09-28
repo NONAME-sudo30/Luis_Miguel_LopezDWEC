@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!!-- Enlace al archivo de estilos CSS -->
+
 <link rel="stylesheet" href="estilos.css">
 <title>Mi primer script</title>
 </head>
@@ -22,7 +24,6 @@
     </tr>
   </thead>
   <tbody id="cuerpoTabla">
-
   <tr id="fila1">
     <td> The Legend of Zelda: Tears of the Kingdom</td>
     <td>Nintendo</td>
@@ -58,13 +59,26 @@
         <td>9.2</td>
         <td>39.99 €</td>
     </tr>
-    <tr id="fila6">
+        <tr id="fila6">
         <td>Stardew Valley</td>
         <td>ConcernedApe</td>
         <td>PC</td>
         <td>8.9</td>
         <td>13.80 €</td>
     </tr>
-ººººººººººººººººººº  </tbody>
+  </tbody>
+</table>
+
+<h2>Añadir videojuego</h2>
+
+<!-- Formulario para añadir un nuevo videojuego -->
+<form id="formVideojuego">
+    <input type="text" id="nombre" placeholder="Nombre">
+    <input type="text" id="compania" placeholder="Compañía">
+    <input type="text" id="plataforma" placeholder="Plataforma">
+    <input type="number" id="valoracion" placeholder="Valoración">
+    <input type="number" id="precio" placeholder="Precio">
+    <button id="Añadir" type="submit">Añadir videojuego</button>
+</form>
 </body>
 </html>

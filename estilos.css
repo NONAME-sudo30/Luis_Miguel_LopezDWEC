@@ -102,3 +102,85 @@ body.tema-claro .enlace {
     background-color: #e9ece9;
 }
 
+#formVideojuego button {
+    position: relative;
+    padding: 12px;
+    background-color: #9b5cff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+#formVideojuego button:hover {
+    background-color: #6f2cff;
+    box-shadow: 0 0 15px #9b5cff;
+    transform: scale(1.05);
+}
+
+#formVideojuego button::before {
+    content: "🕸️";
+    position: absolute;
+    font-size: 40px;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0.4s;
+}
+
+#formVideojuego button:hover::before {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1.5);
+}
+#formVideojuego {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 350px;
+    margin: 20px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #ffffff, #e8ddff);
+    border: 3px solid #9b5cff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(155, 92, 255, 0.7);
+}
+
+#formVideojuego input {
+    padding: 10px;
+    border: 2px solid #9b5cff;
+    border-radius: 8px;
+    background-color: #f8f4ff;
+    color: #2b0a45;
+    font-size: 16px;
+}
+
+#formVideojuego input:focus {
+    outline: none;
+    box-shadow: 0 0 10px #9b5cff;
+}
+
+#formVideojuego button {
+    padding: 12px;
+    background-color: #9b5cff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#formVideojuego button:hover {
+    background-color: #6f2cff;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #9b5cff;
+}
+
+h2 {
+    text-align: center;
+    color: #6f2cff;
+    text-shadow: 0 0 8px #c9a3ff;
+}
