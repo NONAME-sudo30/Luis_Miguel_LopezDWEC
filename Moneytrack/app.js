@@ -54,3 +54,35 @@ function formatearDinero(cantidad) {
 
 	return `${cantidadFormateada} ${simboloMoneda}`;
 }
+
+function totalIngresos() {
+	let total = 0;
+
+	for (const movimiento of movimientos) {
+		if (movimiento.importe > 0) {
+			total += movimiento.importe;
+		}
+	}
+
+	return total;
+}
+
+function totalGastos() {
+	let total = 0;
+
+	for (const movimiento of movimientos) {
+		if (movimiento.importe < 0) {
+			total += movimiento.importe;
+		}
+	}
+
+	return total;
+}
+
+function saldoActual() {
+	return saldoInicial + totalIngresos() + totalGastos();
+}
+
+console.log(`Ingresos: ${formatearDinero(totalIngresos())}`);
+console.log(`Gastos: ${formatearDinero(totalGastos())}`);
+console.log(`Saldo actual: ${formatearDinero(saldoActual())}`);
