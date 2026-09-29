@@ -1,33 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Moneytrack</title>
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    <link rel="stylesheet" href="estilos.css">
-    <section class="resumen-gastos" aria-live="polite">
-        <h2>Categoría con mayor gasto</h2>
-        <p id="categoria-mayor-gasto"></p>
-    </section>
-    <label for="filtro-categoria">Filtrar por categoría:</label>
-    <select id="filtro-categoria">
-        <option value="">Todas</option>
-    </select>
-    <div class="tabla-contenedor">
-        <table>
-            <thead>
-                <tr>
-                    <th>Fecha</th>
-                    <th>Concepto</th>
-                    <th>Categoría</th>
-                    <th>Importe</th>
-                </tr>
-            </thead>
-            <tbody id="cuerpo-movimientos"></tbody>
-        </table>
-    </div>
+    <header class="barra-superior">
+        <a class="marca" href="#" aria-label="Moneytrack, inicio">
+            <span class="marca-icono">M</span>
+            <span>Moneytrack</span>
+        </a>
+        <div class="estado-cuenta">
+            <span class="indicador-activo"></span>
+            <span>Cuenta personal</span>
+        </div>
+    </header>
+    <main class="contenedor-principal">
+        <section class="encabezado-pagina">
+            <div>
+                <p class="sobrelinea">GESTIÓN DE CUENTA</p>
+                <h1>Resumen financiero</h1>
+            </div>
+            <span class="etiqueta-cuenta">CUENTA PRINCIPAL</span>
+        </section>
+        <section class="resumen-gastos" aria-live="polite">
+            <h2>Vista general</h2>
+            <dl class="estadisticas">
+                <div><dt>Saldo actual</dt><dd id="saldo-actual"></dd></div>
+                <div><dt>Ingresos</dt><dd id="total-ingresos"></dd></div>
+                <div><dt>Gastos</dt><dd id="total-gastos"></dd></div>
+                <div><dt>Mayor gasto</dt><dd id="categoria-mayor-gasto"></dd></div>
+            </dl>
+        </section>
+        <section class="formulario-movimiento">
+            <div class="encabezado-seccion">
+                <span class="numero-seccion">01</span>
+                <h2>Añadir movimiento</h2>
+            </div>
+            <form id="formulario-movimiento" novalidate>
+                <div class="campos-formulario">
+                    <label for="concepto">Concepto
+                        <input id="concepto" name="concepto" type="text" placeholder="Ej. Compra semanal" required>
+                    </label>
+                    <label for="importe">Importe
+                        <input id="importe" name="importe" type="number" step="any" placeholder="0,00" required>
+                    </label>
+                    <label for="categoria">Categoría
+                        <input id="categoria" name="categoria" type="text" placeholder="Ej. Alimentación" required>
+                    </label>
+                </div>
+                <div class="acciones-formulario">
+                    <p id="error-formulario" class="error-formulario" aria-live="polite"></p>
+                    <button type="submit">Añadir movimiento</button>
+                </div>
+            </form>
+        </section>
+        <section class="seccion-movimientos">
+            <div class="barra-movimientos">
+                <div class="encabezado-seccion">
+                    <span class="numero-seccion">02</span>
+                    <h2>Movimientos</h2>
+                </div>
+                <div class="filtro-categoria">
+                    <label for="filtro-categoria">Categoría</label>
+                    <select id="filtro-categoria">
+                        <option value="">Todas</option>
+                    </select>
+                </div>
+            </div>
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Concepto</th>
+                            <th>Categoría</th>
+                            <th>Importe</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpo-movimientos"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
     <script src="app.js"></script>
 </body>
 </html>
