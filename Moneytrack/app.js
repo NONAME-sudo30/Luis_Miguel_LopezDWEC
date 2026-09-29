@@ -68,19 +68,46 @@ function totalIngresos() {
 }
 
 function totalGastos() {
-	let total = 0;
-
-	for (const movimiento of movimientos) {
+	return movimientos.reduce((total, movimiento) => {
 		if (movimiento.importe < 0) {
-			total += movimiento.importe;
+			return total + movimiento.importe;
 		}
-	}
-
-	return total;
+		return total;
+	}, 0);
 }
 
 function saldoActual() {
 	return saldoInicial + totalIngresos() + totalGastos();
+}
+
+function gastosPorCategoria() {
+	return movimientos.reduce((gastos, movimiento) => {
+		if (movimiento.importe < 0) {
+			const categoria = movimiento.categoria;
+			gastos[categoria] = (gastos[categoria] || 0) + Math.abs(movimiento.importe);
+		}
+		return gastos;
+	}, {});
+}
+
+function mostrarCategoriaMayorGasto() {
+	const elementoCategoria = document.querySelector("#categoria-mayor-gasto");
+	const mayorGasto = Object.entries(gastosPorCategoria()).reduce(
+		(mayor, [categoria, total]) => {
+			if (mayor === null || total > mayor.total) {
+				return { categoria, total };
+			}
+			return mayor;
+		},
+		null,
+	);
+
+	if (mayorGasto === null) {
+		elementoCategoria.textContent = "No hay gastos registrados.";
+		return;
+	}
+
+	elementoCategoria.textContent = `${mayorGasto.categoria}: ${formatearDinero(mayorGasto.total)}`;
 }
 
 function pintarMovimientos(listaMovimientos = movimientos) {
@@ -136,5 +163,6 @@ console.log(`Ingresos: ${formatearDinero(totalIngresos())}`);
 console.log(`Gastos: ${formatearDinero(totalGastos())}`);
 console.log(`Saldo actual: ${formatearDinero(saldoActual())}`);
 
+mostrarCategoriaMayorGasto();
 configurarFiltroCategoria();
 pintarMovimientos();

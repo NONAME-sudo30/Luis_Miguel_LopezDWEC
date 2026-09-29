@@ -19,6 +19,25 @@ label {
 	font-weight: 600;
 }
 
+.resumen-gastos {
+	max-width: 920px;
+	margin-bottom: 24px;
+	padding: 16px 20px;
+	border-left: 4px solid #c62828;
+	background: #fff;
+}
+
+.resumen-gastos h2 {
+	margin: 0 0 6px;
+	font-size: 1rem;
+}
+
+.resumen-gastos p {
+	margin: 0;
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
 #filtro-categoria {
 	margin-bottom: 18px;
 	padding: 8px 30px 8px 10px;
