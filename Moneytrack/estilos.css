@@ -257,6 +257,28 @@ body {
 	font-size: 0.9rem;
 }
 
+.acciones-cabecera {
+	display: flex;
+	align-items: center;
+	gap: 22px;
+}
+
+.boton-videojuegos {
+	padding: 9px 12px;
+	border: 1px solid #53717c;
+	border-radius: 4px;
+	background: #244a58;
+	color: #fff;
+	font-size: 0.84rem;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.boton-videojuegos:hover {
+	border-color: #20a58b;
+	background: #2d5964;
+}
+
 .indicador-activo {
 	width: 8px;
 	height: 8px;
@@ -282,7 +304,7 @@ body {
 	color: #58717f;
 	font-size: 0.72rem;
 	font-weight: 700;
-	letter-spacing: 1px;
+	letter-spacing: 0;
 }
 
 .encabezado-pagina h1 {
@@ -499,7 +521,7 @@ th {
 	background: #e8eef1;
 	color: #49616e;
 	font-size: 0.76rem;
-	letter-spacing: 0.4px;
+	letter-spacing: 0;
 	text-transform: uppercase;
 }
 

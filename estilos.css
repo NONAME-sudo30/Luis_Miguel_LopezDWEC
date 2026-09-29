@@ -9,6 +9,30 @@ margin: 40px auto;
 padding: 0 20px;
 line-height: 1.6;
 }
+
+.enlace-moneytrack {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 10px 16px;
+    border: 1px solid #4f8cff;
+    border-radius: 6px;
+    background-color: #17345e;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.enlace-moneytrack:hover {
+    background-color: #24519a;
+    transform: translateY(-1px);
+}
+
+.enlace-moneytrack:focus-visible {
+    outline: 3px solid #8eb5ff;
+    outline-offset: 3px;
+}
+
 h1 {
 color: #4f8cff;
 }
