@@ -6,10 +6,24 @@
     <title>Document</title>
 </head>
 <body>
-    
-
-
-<link rel="stylesheet" href="estilos.css">
-    <script src="app.js">app</script>
+    <link rel="stylesheet" href="estilos.css">
+    <label for="filtro-categoria">Filtrar por categoría:</label>
+    <select id="filtro-categoria">
+        <option value="">Todas</option>
+    </select>
+    <div class="tabla-contenedor">
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Concepto</th>
+                    <th>Categoría</th>
+                    <th>Importe</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpo-movimientos"></tbody>
+        </table>
+    </div>
+    <script src="app.js"></script>
 </body>
 </html>

@@ -83,6 +83,58 @@ function saldoActual() {
 	return saldoInicial + totalIngresos() + totalGastos();
 }
 
+function pintarMovimientos(listaMovimientos = movimientos) {
+	const cuerpoMovimientos = document.querySelector("#cuerpo-movimientos");
+	cuerpoMovimientos.replaceChildren();
+
+	for (const movimiento of listaMovimientos) {
+		const fila = document.createElement("tr");
+		const valores = [
+			movimiento.fecha,
+			movimiento.concepto,
+			movimiento.categoria,
+			formatearDinero(movimiento.importe),
+		];
+
+		for (const [indice, valor] of valores.entries()) {
+			const celda = document.createElement("td");
+			celda.textContent = valor;
+
+			if (indice === 3 && movimiento.importe !== 0) {
+				celda.classList.add(movimiento.importe > 0 ? "ingreso" : "gasto");
+			}
+
+			fila.append(celda);
+		}
+
+		cuerpoMovimientos.append(fila);
+	}
+}
+
+function configurarFiltroCategoria() {
+	const filtroCategoria = document.querySelector("#filtro-categoria");
+	const categorias = [...new Set(movimientos.map((movimiento) => movimiento.categoria))];
+
+	for (const categoria of categorias) {
+		const opcion = document.createElement("option");
+		opcion.value = categoria;
+		opcion.textContent = categoria;
+		filtroCategoria.append(opcion);
+	}
+
+	filtroCategoria.addEventListener("change", () => {
+		const categoriaSeleccionada = filtroCategoria.value;
+		const movimientosFiltrados = categoriaSeleccionada
+			? movimientos.filter((movimiento) => movimiento.categoria === categoriaSeleccionada)
+			: movimientos;
+
+		pintarMovimientos(movimientosFiltrados);
+	});
+}
+
 console.log(`Ingresos: ${formatearDinero(totalIngresos())}`);
 console.log(`Gastos: ${formatearDinero(totalGastos())}`);
 console.log(`Saldo actual: ${formatearDinero(saldoActual())}`);
+
+configurarFiltroCategoria();
+pintarMovimientos();
